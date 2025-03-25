@@ -1,5 +1,8 @@
+/**
+ * The Policy class represents an insurance policy.
+ * It stores details about the policyholder and calculates insurance costs.
+ */
 public class Policy {
-    // Attributes
     private int policyNumber;
     private String providerName;
     private String policyholderFirstName;
@@ -9,7 +12,9 @@ public class Policy {
     private double policyholderHeight;
     private double policyholderWeight;
 
-    // No-argument constructor with default values
+    /**
+     * Default constructor initializes fields with default values.
+     */
     public Policy() {
         this.policyNumber = 0;
         this.providerName = "Unknown";
@@ -21,7 +26,17 @@ public class Policy {
         this.policyholderWeight = 0.0;
     }
 
-    // Parameterized constructor
+    /**
+     * Parameterized constructor initializes the policy with given values.
+     * @param policyNumber Policy number
+     * @param providerName Insurance provider name
+     * @param firstName Policyholder's first name
+     * @param lastName Policyholder's last name
+     * @param age Policyholder's age
+     * @param smokingStatus Smoking status ("smoker" or "non-smoker")
+     * @param height Policyholder's height in inches
+     * @param weight Policyholder's weight in pounds
+     */
     public Policy(int policyNumber, String providerName, String firstName, String lastName,
                   int age, String smokingStatus, double height, double weight) {
         this.policyNumber = policyNumber;
@@ -34,37 +49,58 @@ public class Policy {
         this.policyholderWeight = weight;
     }
 
-    // Getters and Setters
+    /**
+     * @return The policy number
+     */
     public int getPolicyNumber() { return policyNumber; }
-    public void setPolicyNumber(int policyNumber) { this.policyNumber = policyNumber; }
 
+    /**
+     * @return The insurance provider name
+     */
     public String getProviderName() { return providerName; }
-    public void setProviderName(String providerName) { this.providerName = providerName; }
 
+    /**
+     * @return Policyholder's first name
+     */
     public String getPolicyholderFirstName() { return policyholderFirstName; }
-    public void setPolicyholderFirstName(String firstName) { this.policyholderFirstName = firstName; }
 
+    /**
+     * @return Policyholder's last name
+     */
     public String getPolicyholderLastName() { return policyholderLastName; }
-    public void setPolicyholderLastName(String lastName) { this.policyholderLastName = lastName; }
 
+    /**
+     * @return Policyholder's age
+     */
     public int getPolicyholderAge() { return policyholderAge; }
-    public void setPolicyholderAge(int age) { this.policyholderAge = age; }
 
+    /**
+     * @return Smoking status ("smoker" or "non-smoker")
+     */
     public String getSmokingStatus() { return smokingStatus; }
-    public void setSmokingStatus(String smokingStatus) { this.smokingStatus = smokingStatus; }
 
+    /**
+     * @return Policyholder's height in inches
+     */
     public double getPolicyholderHeight() { return policyholderHeight; }
-    public void setPolicyholderHeight(double height) { this.policyholderHeight = height; }
 
+    /**
+     * @return Policyholder's weight in pounds
+     */
     public double getPolicyholderWeight() { return policyholderWeight; }
-    public void setPolicyholderWeight(double weight) { this.policyholderWeight = weight; }
 
-    // Method to calculate BMI
+    /**
+     * Calculates and returns the BMI of the policyholder.
+     * @return The calculated BMI
+     */
     public double calculateBMI() {
         return (policyholderWeight * 703) / (policyholderHeight * policyholderHeight);
     }
 
-    // Method to calculate insurance price
+    /**
+     * Calculates the insurance policy price based on age, smoking status, and BMI.
+     * @return The calculated insurance price
+     */
     public double calculateInsurancePrice() {
         double price = 600; // Base fee
         if (policyholderAge > 50) {
